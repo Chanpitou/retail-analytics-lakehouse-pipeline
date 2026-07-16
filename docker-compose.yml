@@ -90,26 +90,6 @@ x-airflow-common:
       condition: service_healthy
 
 services:
-  postgres-retail:
-    image: postgres:16
-    container_name: postgres-retail
-    environment:
-      POSTGRES_USER: ${POSTGRES_RETAIL_USERNAME}
-      POSTGRES_PASSWORD: ${POSTGRES_RETAIL_PASSWORD}
-      POSTGRES_DB: retail_raw
-    ports:
-      - "5433:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./retail_data/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./retail_data/data:/data:ro
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "${POSTGRES_RETAIL_USERNAME}", "-d", "retail_raw"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
-    restart: unless-stopped
-
   postgres:
     image: postgres:16
     environment:
