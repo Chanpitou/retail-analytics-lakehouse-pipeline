@@ -7,6 +7,14 @@ wheels/
 *.egg-info
 .idea/
 .env
+logs/
+uv.lock
+
+# DBT folder
+retail_dbt_project/target/
+retail_dbt_project/dbt_packages/
+retail_dbt_project/logs/
+retail_dbt_project/profiles.yml
 
 # Virtual environments
 .venv
