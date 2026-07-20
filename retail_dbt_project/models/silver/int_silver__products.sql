@@ -8,9 +8,9 @@
 SELECT
     product_id,
     INITCAP(TRIM(product_name)) AS product_name,
-    INITCAP(TRIM(category)) AS category,
-    INITCAP(TRIM(brand)) AS brand,
-    CAST(price AS DECIMAL(10, 2)) AS price,
+    INITCAP(TRIM(category)) AS product_category,
+    INITCAP(TRIM(brand)) AS product_brand,
+    CAST(price AS DECIMAL(10, 2)) AS unit_price,
     product_created_timestamp,
     product_updated_timestamp,
     CAST(product_is_active AS boolean) AS product_is_active,

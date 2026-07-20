@@ -7,7 +7,7 @@
 
 SELECT
     customer_id,
-    INITCAP(TRIM(customer_first_name)) AS customer_name,
+    INITCAP(TRIM(customer_first_name)) AS customer_first_name,
     INITCAP(TRIM(customer_last_name)) AS customer_last_name,
     LOWER(TRIM(customer_email)) AS customer_email,
     customer_phone,
