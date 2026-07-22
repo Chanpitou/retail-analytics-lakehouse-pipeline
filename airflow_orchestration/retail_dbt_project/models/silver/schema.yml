@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  # Cleaned employee table tests
+  - name: int_silver__customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  # Cleaned employee table tests
+  - name: int_silver__employees
+    columns:
+      - name: employee_id
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('int_silver__stores')
+                field: store_id
+
+  # Cleaned order_items table tests
+  - name: int_silver__order_items
+    columns:
+      - name: order_item_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('int_silver__orders')
+                field: order_id
+      - name: product_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('int_silver__products')
+                field: product_id
+
+  # Cleaned orders table tests
+  - name: int_silver__orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('int_silver__customers')
+                field: customer_id
+      - name: store_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('int_silver__stores')
+                field: store_id
+
+  # Cleaned products table tests
+  - name: int_silver__products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  # Cleaned stores table tests
+  - name: int_silver__stores
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null

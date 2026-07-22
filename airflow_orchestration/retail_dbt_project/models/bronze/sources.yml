@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: retail_source
+    database: retail-analytics-lakehouse
+    schema: retail_raw
+    tables:
+      - name: customers
+      - name: employees
+      - name: order_items
+      - name: orders
+      - name: products
+      - name: stores

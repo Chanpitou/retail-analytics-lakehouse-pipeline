@@ -5,10 +5,11 @@ build/
 dist/
 wheels/
 *.egg-info
-.idea/
+../.idea/
 .env
 logs/
 uv.lock
+medallion_plan.md
 
 # DBT folder
 retail_dbt_project/target/
